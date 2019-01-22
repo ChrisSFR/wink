@@ -5,6 +5,7 @@ namespace Wink;
 use Illuminate\Support\Facades\Route;
 use Wink\Http\Middleware\Authenticate;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Http\Resources\Json\Resource;
 
 class WinkServiceProvider extends ServiceProvider
 {
@@ -18,6 +19,10 @@ class WinkServiceProvider extends ServiceProvider
         $this->registerRoutes();
         $this->registerAuthGuard();
         $this->registerPublishing();
+        
+        if (Resource::$wrap == null) {
+            Resource::wrap('data');
+        }
 
         $this->loadViewsFrom(
             __DIR__.'/../resources/views', 'wink'
