@@ -3590,7 +3590,7 @@ __webpack_require__.r(__webpack_exports__);
         _this5.tags = response.data.data;
       });
       this.http().get('/api/team').then(function (response) {
-        _this5.authors = response.data.data;
+        _this5.authors = response.data;
 
         if (!_this5.form.author_id && _this5.authors) {
           _this5.form.author_id = _this5.Wink.author.id;
