@@ -186,7 +186,7 @@
                 });
 
                 this.http().get('/api/team').then(response => {
-                    this.authors = response.data;
+                    this.authors = response.data.data;
 
                     if (!this.form.author_id && this.authors) {
                         this.form.author_id = this.Wink.author.id;
